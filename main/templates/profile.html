@@ -1,0 +1,10 @@
+{% block content%}
+    <br>
+    <img width = 250px src = "{{profile.image}}">
+    <br><br> 
+    {{profile.address}}
+    <br><br>
+    {{profile.hobbies}}
+    <br><br>
+    <a href="{%url 'update_profile'%}"> Update profile </a>
+{% endblock content %}

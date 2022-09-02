@@ -1,0 +1,68 @@
+RECIPIES APP
+
+Home page:
+search bar with some options:
+INGREDIENTS:
+    pasta
+    ricee
+    tuna
+
+LEVEL:
+    easy
+    medium
+    advanced
+    mastercheff
+MEALS:
+    dinner
+    lunch
+    breakfast
+TYPE:
+    starter
+    main
+    dessert
+COUSINE:
+    mediterranean
+    brazilian
+    italian...
+
+Results page:
+each recipie in a card with buttons to see the recipe
+* organize by:
+            rate
+            likes
+            comments
+
+Recipie page
+    picture 
+    title
+    Ingredients...
+
+SignUp, SignIn, SignOut
+
+PROFILE:
+    Navbar like facebook (notifications, settings, search users)
+    My calendar (plan your weekly meals)
+    My recipies - add new recipe
+    Favorites
+    Friends *
+
+My calendar:
+    API google calendar? - Add time over the week to buy ingredients and cooking 
+                            add recipies in slotes of time (breakfast, lunch, dinner)
+
+Buy list page:
+add the ingredients of the weekly recipies to a buy list
+
+TO DO LIST
+31/08 - authentication system with django allauth and google login, special users = chef/restaurant(the only ones that can add a recipe)
+01/09 - check sigup with google 
+connect with the API to google calendar - be able to add a recipe to a google calendar, adding reminder to buy the ingredients one day before 
+02/09 - connect to facebook to share your profile and a recipe, send confirmation mail with signup, add forget password and change password
+03/09 - work on links to the pages and css
+04, 05/09 - populate data base and do with the social part: 
+        I- favorite, like, comment a recipe
+        II- follow chefs and restaurants
+07, 08/09 - Last adjustments and deployment
+
+
+
