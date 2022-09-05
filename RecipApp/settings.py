@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'RecipApp.wsgi.application'
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'recipapp',
+            'NAME': 'recipe_app',
             'USER':'postgres',
             'PASSWORD': '1948',
             'HOST': 'localhost',
@@ -140,7 +140,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-SITE_ID = 2
+SITE_ID = 3
 
 AUTHENTICATION_BACKENDS = (
    "django.contrib.auth.backends.ModelBackend",

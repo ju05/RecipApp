@@ -1,5 +1,5 @@
-{% extends "account/base.html" %}
 {% load socialaccount %}
+{% include 'partials/head.html' %}
 
 {% load i18n %}
 
@@ -15,26 +15,50 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-  <title>SignIn</title>
+  <title>SignUp</title>
+
+  <style>
+   form {
+  text-align:center;
+  display: block;
+  position:relative;
+  }
+  </style>
 </head>
 <body>
 
-  <div class="container text-dark mt-5">
+  <div class="container shadow-lg p-3 mb-5 bg-body rounded text-dark mt-5">
       <div class="row justify-content-md-center">
         <div class="col-md-5 bg-grey p-3">
             <h1>{% trans "Sign Up" %}</h1>
 
-            <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+            <p>{% blocktrans %}Already have an account? 
+              <br>Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
-            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-              {% csrf_token %}
-              {{ form.as_p }}
-              {% if redirect_field_value %}
-              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-              {% endif %}
-              <button class="btn btn-lg btn-primary btn-block" type="submit">{% trans "Sign Up" %} &raquo;</button>
-              <a href="{% provider_login_url 'google' %}" class="btn btn btn-danger btn-lg btn-block" role="button" aria-pressed="true">Sign up with Google</a>
-            </form>
+            <form method="POST" actione="." class="login-form spacer" id="signup-form"> 
+              {% csrf_token %} 
+               
+                  <div class="input-group">                      
+                      {{form.username}} 
+                  </div> 
+                  <br>
+                  <div class="input-group">                      
+                      {{form.email}} 
+                  </div> 
+                  <br>
+                  <div class="input-group">                      
+                      {{form.password1}} 
+                  </div> 
+                  <br>
+                  <div class="input-group">                      
+                      {{form.password2}} 
+                  </div> 
+                  <br>
+                <div class="d-grid gap-2 col-6 mx-start">
+                  <button class="btn btn-md btn-primary btn-block" type="submit">Sign Up</button> 
+                  <button class="btn btn-md btn-danger btn-block" type="submit">Sign Up with Google</button>
+                </div>
+              </form> 
           </div>
         </div>
       </div>

@@ -63,15 +63,24 @@ connect with the API to google calendar - be able to add a recipe to a google ca
 
 03/09 - work on links to the pages and css
 
-04/09 - make the api calendar work 
-        access the templates from allauth
-        decide a solution for the ingredients field        
-        design and set all the links for the pages(signup, in, out)
-        fix all the dropdown in the home page
+04/09 - make the api calendar work - ieshhhhhhhhhhhhhh
+        access the templates from allauth - ieshhhhhhhhhhhhh
+        decide a solution for the ingredients field  - amoust      
+        design and set all the links for the pages(signup, in, out) - ieshhhhh
+        fix all the dropdown in the home page - no need
 
-04, 05/09 - populate data base and do with the social part: 
-        I- favorite, like, comment a recipe
-        II- follow chefs and restaurants
+04, 06/09 - check ingredients issues
+            populate data base 
+            check sign in and sign up regular
+            check why is adding to calendar twice 
+            set up the create event properly. User will choose:
+                I- date and time
+                II- recorrent event with random recipes?
+
+            finish the search bar:
+                I- search by: 15 min recipies/ what i have on the fridge/ cuisine
+                II- or just type the title
+            
 07, 08/09 - Last adjustments and deployment
 
 

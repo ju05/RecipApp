@@ -1,4 +1,4 @@
-import re
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -10,7 +10,6 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views import generic
 from RecipApp.quickstart import main
 
-
 def home(request):
     total_recipes = Recipe.objects.all().count()
     context = {
@@ -19,7 +18,42 @@ def home(request):
     }    
     return render(request, 'home.html', context)
 
-# ------------------------------------PROFILE FUNCTIONS--------------------------------
+# -------------------------------------SIGNIN SIGNUP ------------------------------
+def signup(request): 
+    form = UserCreationForm(request.POST) 
+    if form.is_valid(): 
+        form.save() 
+        username = form.cleaned_data.get('username') 
+        password = form.cleaned_data.get('password') 
+        user = authenticate(username=username, password=password) 
+        login(request, user) 
+        return redirect('home') 
+    context = { 
+        'form': form 
+    } 
+    return render(request, 'signup.html', context) 
+
+def signin(request):
+    if request.user.is_authenticated:
+        return redirect('homepage')
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        # Authernticate
+        user = authenticate(username = username, password = password)
+        if user is not None:
+            # login takes request and the user associated
+            login(request, user)
+            return redirect('homepage')
+        else:
+            return render(request, 'login.html', {'form': AuthenticationForm(request.POST)})
+    
+    else:
+        return render(request, 'login.html', {'form': AuthenticationForm})
+
+
+# ------------------------------------PROFILE VIEWS--------------------------------
 def update_profile(request):
     
     profile = request.user.userprofile

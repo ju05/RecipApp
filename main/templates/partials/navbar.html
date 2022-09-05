@@ -94,11 +94,12 @@ body {
   <a href="#contact">My Recipes</a>
   <a href="{% url 'account_logout'%}">Signout</a>
   {% endif %}    
-  {% if user.is_authenticated and user|has_group:"Chef" %}
+  {% if user.is_authenticated %}
+  {% elif user|has_group:"Chef" %}
   <a href="{% url 'add_recipe' %}">Add Recipe </a>
   <a href="#contact">Blog</a>
-  <a href="">Signout</a>   
-  {% else %}
+  <a href="">Signout</a>  
+  {% elif not user.is_authenticated%}
   <a href="/accounts/login">SignIn</a>
   {% endif %}
 </div>
