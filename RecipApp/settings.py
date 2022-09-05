@@ -38,10 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "django.contrib.sites", # <--google auth
-   "allauth", # <--
-   "allauth.account", # <--
-   "allauth.socialaccount", # <--
-   "allauth.socialaccount.providers.google",
+    "allauth", # <--
+    "allauth.account", # <--
+    "allauth.socialaccount", # <--
+    "allauth.socialaccount.providers.google",
     'main'
 ]
 SOCIALACCOUNT_PROVIDERS = {
@@ -147,4 +147,4 @@ AUTHENTICATION_BACKENDS = (
    "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-LOGIN_REDIRECT_URL = 'profile'
+LOGIN_REDIRECT_URL = 'home'

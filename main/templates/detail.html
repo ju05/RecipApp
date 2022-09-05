@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   {% include 'head.html' %}
-   {% include 'navbar.html' %}
+   {% include 'partials/head.html' %}
+   
       <style>
          li {
          font-size: 0.95rem;
@@ -47,13 +47,13 @@
                   <!-- Card -->
                   <div class="card pb-5 mx-md-3">
                      
-                     <h1>{{recipe.title}}</h1>
+                     
 
                      <div class="card-body">
                         <div class="container">
                            <!-- Section heading -->
                            <h1 class="text-center h1 pt-4 mb-3">
-                              <strong>{{output.title}}</strong>
+                              <strong>{{recipe.title}}</strong>
                            </h1>
                            <div class="row">
                               <div class="col-md-12 col-xl-12 d-flex justify-content-center">
@@ -117,8 +117,13 @@
                                  <div class="row my-5">
                                     <!-- Grid column -->
                                     <div class="col-md-12 text-center">
+                                       <form method="post" action="{%url 'add_to_calendar' recipe.id%}">
+                                          {%csrf_token%}
+                                       <button name="recipe" class="btn btn-red btn-rounded btn-lg white-text font-weight-bold ml-lg-0" type="submit">
+                                          <i class="white-text mr-2" aria-hidden="true"></i>Add to my Calendar</button>
+                                       </form>
                                        <h4 class="text-center font-weight-bold dark-grey-text mt-3 mb-3">
-                                          <strong>Share this post: </strong>
+                                          <strong>Share this Recipe: </strong>
                                        </h4>
                                        <button type="button" class="btn btn-fb btn-sm">
                                        <i class="fab fa-facebook-f left"></i> Facebook</button>
@@ -147,38 +152,11 @@
             </div>
             <!-- Grid row -->
             <div class="text-center mt-5">
-               <a href="{% url 'home' %}">Back Home</a>
+               <h1><a href="{% url 'home' %}">Home</h1></a>
             </div>
          </div>
       </main>
-      <!-- Main Layout -->
-      <!-- Footer -->
-      <footer class="page-footer text-center text-md-left unique-color-dark pt-0">
-         <!-- Copyright -->
-         <div class="footer-copyright text-center py-3">
-            <div class="container-fluid">
-               © 2022 Copyright: <a href="https://www.linkedin.com/in/juliana-schmidt-4832a168/" target="_blank"> Juliana Schmidt</a>
-            </div>
-         </div>
-         <!-- Copyright -->
-      </footer>
-      <!-- SCRIPTS -->
-      {% include 'scripts.html' %}
-      <script>
-         new WOW().init();
-         
-         $(function () {
-           var selectedClass = "";
-           $(".filter").click(function () {
-             selectedClass = $(this).attr("data-rel");
-             $("#gallery").fadeTo(100, 0.1);
-             $("#gallery div").not("." + selectedClass).fadeOut().removeClass('animation');
-             setTimeout(function () {
-               $("." + selectedClass).fadeIn().addClass('animation');
-               $("#gallery").fadeTo(300, 1);
-             }, 300);
-           });
-         });
-      </script>
+      
+      {% include 'partials/footer.html' %}
    </body>
 </html>

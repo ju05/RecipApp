@@ -1,4 +1,4 @@
-{% extends 'head.html' %}
+{% extends 'partials/head.html' %}
 {% block content %}
 
     <style>
@@ -28,7 +28,7 @@
                                  <strong>Hello, {{user.first_name}}! <br>
                                     What's for dinner today?</strong>
                                  {% else %}
-                                 <strong>Hello, What's for dinner today?</strong>
+                                 <strong>Hello friend! please signin </strong>
                                  {% endif %}
                               </h1>
                            </li>
@@ -132,7 +132,7 @@
          <!-- Copyright -->
       </footer>
       <!-- Footer -->
-      {% include 'scripts.html' %}
+      {% include 'partials/scripts.html' %}
       <script>
          // Animation init
          new WOW().init();

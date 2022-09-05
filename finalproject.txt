@@ -55,10 +55,20 @@ add the ingredients of the weekly recipies to a buy list
 
 TO DO LIST
 31/08 - authentication system with django allauth and google login, special users = chef/restaurant(the only ones that can add a recipe)
+
 01/09 - check sigup with google 
 connect with the API to google calendar - be able to add a recipe to a google calendar, adding reminder to buy the ingredients one day before 
+
 02/09 - connect to facebook to share your profile and a recipe, send confirmation mail with signup, add forget password and change password
+
 03/09 - work on links to the pages and css
+
+04/09 - make the api calendar work 
+        access the templates from allauth
+        decide a solution for the ingredients field        
+        design and set all the links for the pages(signup, in, out)
+        fix all the dropdown in the home page
+
 04, 05/09 - populate data base and do with the social part: 
         I- favorite, like, comment a recipe
         II- follow chefs and restaurants
