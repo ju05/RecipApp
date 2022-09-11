@@ -1,21 +1,20 @@
 from __future__ import print_function
-
 import datetime
 import os.path
-
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 import sys 
+from .Google import convert_to_RFC_datetime
 
 sys.path.append('C:\\Users\\JuJu\\Desktop\\RecipApp\\RecipApp')
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
-def main(request):
+def create_event(request):
     """Shows basic usage of the Google Calendar API.
     Prints the start and name of the next 10 events on the user's calendar.
     """
@@ -45,26 +44,19 @@ def main(request):
         # Call the Calendar API
         now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
         recipe = request.POST.get('recipe')
-        print(request.POST)
+        hour_adjustment = -3
         event = {
-        'summary': 'Prepare Meal',
+        'summary': 'Prepare Lunch',
         'location': 'Home',
         'description': f'http://127.0.0.1:8000/detail/{recipe_id}',
         'start': {
-            'dateTime': '2022-09-05T09:00:00-07:00',
-            'timeZone': 'America/Los_Angeles',
+            'dateTime': convert_to_RFC_datetime(2022, 9, 8, 12 + hour_adjustment, 30),
+            'timeZone': 'Asia/Jerusalem',
         },
         'end': {
-            'dateTime': '2022-09-05T17:00:00-07:00',
-            'timeZone': 'America/Los_Angeles',
-        },
-        'recurrence': [
-            'RRULE:FREQ=DAILY;COUNT=2'
-        ],
-        'attendees': [
-            {'email': 'lpage@example.com'},
-            {'email': 'sbrin@example.com'},
-        ],
+            'dateTime': convert_to_RFC_datetime(2022, 9, 8, 13 + hour_adjustment, 30),
+            'timeZone': 'Asia/Jerusalem',
+        },      
         'reminders': {
             'useDefault': False,
             'overrides': [

@@ -77,11 +77,13 @@ connect with the API to google calendar - be able to add a recipe to a google ca
                 I- date and time
                 II- recorrent event with random recipes?
 
-            finish the search bar:
+            
+            
+07/09 - finish the search bar:
                 I- search by: 15 min recipies/ what i have on the fridge/ cuisine
                 II- or just type the title
-            
-07, 08/09 - Last adjustments and deployment
+        add favorite recipes
+08/09 - work on portfolio
 
 
 

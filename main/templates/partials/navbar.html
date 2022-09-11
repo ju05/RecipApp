@@ -10,6 +10,7 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
 }
 
 .topnav {
@@ -33,7 +34,7 @@ body {
 }
 
 .topnav a.active {
-  background-color: #fd2937;
+  background-color:#ff4444;
   color: white;
 }
 
@@ -86,22 +87,20 @@ body {
 <body>
 
 <div class="topnav">
-  <a class="active" href="{% url 'home' %}">Home</a>  
-  {% if user.is_authenticated %}
-  <a href="{%url 'profile'%}">Profile</a>
-  <a href="#contact">My Week Meals </a>
-  <a href="#contact">Shopping List </a>
-  <a href="#contact">My Recipes</a>
-  <a href="{% url 'account_logout'%}">Signout</a>
-  {% endif %}    
-  {% if user.is_authenticated %}
-  {% elif user|has_group:"Chef" %}
+  <a class="active" href="{% url 'home' %}">RecipApp</a>
+  {% if user|has_group:"Chef/Restaurant" %}
   <a href="{% url 'add_recipe' %}">Add Recipe </a>
-  <a href="#contact">Blog</a>
-  <a href="">Signout</a>  
-  {% elif not user.is_authenticated%}
+  <a href="#contact">Blog</a>    
+  {% endif %}   
+  {% if request.user.is_authenticated %}
+  <a href="{% url 'profile'%}">Profile</a>
+  <a href="{% url 'favorites' %}">My Recipes</a>
+  <a href="{% url 'account_logout'%}">Signout</a>
+  
+  {% else %}
   <a href="/accounts/login">SignIn</a>
-  {% endif %}
+  {% endif %}      
+  
 </div>
 </body>
 </html>

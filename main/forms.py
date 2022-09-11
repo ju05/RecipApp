@@ -1,8 +1,10 @@
 from django import forms
+import datetime
 from django.contrib.auth.models import User 
 from django.contrib.auth.forms import UserCreationForm
 from .models import  Recipe, UserProfile
 
+# --------------------------------------------ACCOUNTS FORMS -----------------------------------------------
 class SignUpForm(UserCreationForm): 
     def __init__(self, *args, **kwargs): 
         super().__init__(*args, **kwargs) 
@@ -59,7 +61,13 @@ class ProfileForm(forms.ModelForm):
         fields = '__all__'
         exclude = ['user']
 
+# ---------------------------------------------RECIPES FORMS--------------------------------
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
         fields = '__all__'
+
+class AddEventForm(forms.Form):  
+    date = forms.DateTimeField(initial=datetime.date.today)
+    
+    

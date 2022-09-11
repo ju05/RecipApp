@@ -1,35 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-}
-/* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-</style>
-  {% include 'partials/head.html' %}
+{% include 'partials/head.html' %}
 <body>
       <div class="mask rgba-gradient7">
          <div class="container h-100 d-flex justify-content-center align-items-center">
@@ -39,7 +8,7 @@
                <div class="col-md-12">
                   <div class="card">
                      <div class="card-body">
-                        <h3>{{query}}: {{total}} Result (s) Found.</h3>
+                        <h3>My Recipes</h3>
                      </div>
                   </div>
                </div>
@@ -48,7 +17,7 @@
             <!-- Grid row -->
          </div>
       </div>
-      {% for recipe in results %} 
+      {% for recipe in favorite %} 
       <div class="row">
          <div class="column">                       
                <!-- Card -->
@@ -60,7 +29,7 @@
                      <!-- Title -->
                      <a href="{{recipe.get_url}}" class="black-text">{{recipe.title}}</a>
                      <!-- Text -->
-                     <p class="card-title text-muted font-small mt-3 mb-2">{{recipe.description|safe|slice:":150"}}</p>
+                     <p class="card-title text-muted font-small mt-3 mb-2">{{recipe.description|safe|slice:":50"}}</p>
                      <a type="button" class="btn btn-flat text-primary p-0 mx-0" href="{{recipe.get_url}}">Read more<i class="fa fa-angle-right ml-2"></i></a>
                   </div>
                </div>

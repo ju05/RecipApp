@@ -36,26 +36,30 @@ class Ingredient(models.Model):
     amount = models.FloatField(null = True, blank = True)
     unit = models.CharField(max_length=50, null = True, blank = True)
 
+    def __str__(self):
+        return f'{self.amount} {self.unit} {self.name}'   
+
 
 class Recipe(models.Model):
     title = models.CharField(max_length=200)    
     image = models.CharField(max_length=400)
     description = models.TextField()
     ingredients = models.ManyToManyField(Ingredient, related_name='recipes')
-    instructions = models.TextField()
+    instructions = ArrayField(ArrayField(models.CharField(max_length=250, null = True)))
     servings = models.CharField(max_length=5)
     prep_time = models.CharField(max_length=5)
-    calories = models.IntegerField( blank=True)
-    carbs = models.FloatField(blank=True)
-    fat = models.FloatField(blank=True)
-    protein = models.FloatField(blank=True)
+    calories = models.IntegerField(null=True, blank=True)
+    carbs = models.FloatField(null=True, blank=True)
+    fat = models.FloatField(null=True, blank=True)
+    protein = models.FloatField(null=True, blank=True)
     gluten_free = models.BooleanField(null = True)
     vegan = models.BooleanField(null = True)
     veggie = models.BooleanField(null = True)
     very_healthy = models.BooleanField(null = True)    
-    type = ArrayField(ArrayField(models.CharField(max_length=50, blank=True)))
-    cusine =  ArrayField(ArrayField(models.CharField(max_length=50, blank=True)))
-    occasion = ArrayField(ArrayField(models.CharField(max_length=50, blank=True)))
+    type = ArrayField(models.CharField(max_length=50, blank=True))
+    cusine =  ArrayField(models.CharField(max_length=50, blank=True))
+    occasion = ArrayField(models.CharField(max_length=50, blank=True))
+    favorite = models.ManyToManyField(User, related_name='favorite', default=None, blank=True)
 
     def __str__(self):
         return self.title

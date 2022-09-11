@@ -23,13 +23,10 @@
                         <ul class="list-unstyled">
                            <li>
                               <h1 class="display-4 font-weight-bold white-text wow fadeIn"
-                                 data-wow-delay="0.3s">
-                                 {% if user.is_autheticated %}
-                                 <strong>Hello, {{user.first_name}}! <br>
-                                    What's for dinner today?</strong>
-                                 {% else %}
-                                 <strong>Hello friend! please signin </strong>
-                                 {% endif %}
+                                 data-wow-delay="0.3s">                                 
+                                 <strong>Hello, {{user.first_name}} <br>
+                                    What will you cook today?</strong>
+                                 
                               </h1>
                            </li>
                            <li>
@@ -57,49 +54,43 @@
                                     <!-- Card body -->
                                     <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
                                        <div class="card-body">
-                                          <!-- Material checked -->                                          
-                                          <select name="Level" style="width: 100px; height: 26px">
-                                             <option selected hidden>Level</option>
-                                             {% for level in levels%}
-                                             <option value={{level.title}}, name="level">{{level}}</option>
-                                             {% endfor %}                                                                                                                                                     
-                                          </select>                                              
-                                          <select name="Meal" style="width: 100px; height: 26px">
-                                             <option selected hidden>Meal</option>
-                                             {% for meal in meals%}
-                                             <option value={{meal.title}}>{{meal}}</option>
-                                             {% endfor%}                                                                                                        
-                                          </select>
-                                          <select name = 'Type' style="width: 100px; height: 26px">
-                                             <option selected hidden>Type</option>
-                                             {% for type in types %}
-                                             <option value={{type.title}} name="Vegetarian">{{type}}</option>
-                                             {% endfor %}                                                                                                       
-                                          </select>
-                                          <select name = 'Cuisine' style="width: 100px; height: 26px">
-                                             <option selected hidden>Cuisine</option>
-                                             {% for cuisine in cuisines %}
-                                             <option value={{cuisine.title}}, name="Mediterranean">{{cuisine}}</option>
-                                             {% endfor %}                                                                                                        
-                                          </select>
-                                          <select name = 'Course' style="width: 100px; height: 26px">
-                                             <option selected hidden>Course</option>
-                                             {% for course in courses %}
-                                             <option value={{course.title}}, name="Starter">{{course}}</option>                                             
-                                             {% endfor %}                                                                                                        
-                                          </select>
-                                          <select name = 'holydays' class="dropdown" style="width: 200px; height: 26px">
-                                             <option selected hidden>Holydays/Seasonal</option>
-                                             {% for holiday in holidays %}
-                                             <option value={{holidays.title}} name="Back to School Snakes">{{holiday}}</option>
-                                             {% endfor %}                                                                                                        
-                                          </select>
-                                          <select name = 'occasion' class="dropdown" style="width: 100px; height: 26px">                                             
-                                             <option selected hidden>Occasion</option>
-                                             {% for occasion in occasions %}
-                                             <option value={{occasion.title}}>{{occasion}}</option>
-                                             {% endfor %}                                                                                                                                                      
-                                          </select>                                          
+                                          <!-- Material checked -->
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" class="form-check-input" value="15min" id="15min" name="15min">
+                                             <label class="form-check-label" for="breakfast">15 min </label>
+                                          </div>                                          
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" name ='Meal' class="form-check-input" value="Breakfast" id="Breakfast" name="Breakfast">
+                                             <label class="form-check-label" for="Breakfast">Breakfast</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" name ='Meal' class="form-check-input" value="Lunch" id="Lunch" name="Lunch">
+                                             <label class="form-check-label" for="Lunch">Lunch</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" name ='Meal' class="form-check-input" value="Dinner" id="Dinner" name="Dinner">
+                                             <label class="form-check-label" for="Dinner">Dinner</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" name ='Meal' class="form-check-input" value="Dessert" id="Dessert" name="Dessert">
+                                             <label class="form-check-label" for="Dessert">Dessert</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" class="form-check-input" value="on" id="Healthy" name="Healthy">
+                                             <label class="form-check-label" for="Healthy">Healthy</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" name = "Diet" class="form-check-input" value="Vegetarian" id="Vegetarian" name="dessert">
+                                             <label class="form-check-label" for="Vegetarian">Vegetarian</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" name = "Diet" class="form-check-input" value="Vegan" id="Vegan" name="Vegan">
+                                             <label class="form-check-label" for="Vegan">Vegan</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" name = "Diet" class="form-check-input" value="GlutenFree" id="GlutenFree" name="GlutenFree">
+                                             <label class="form-check-labell" for="GlutenFree">Gluten Free</label>
+                                          </div>
                                        </div>
                                     </div>
                                  </div>

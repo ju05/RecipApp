@@ -2,15 +2,19 @@
 <html lang="en">
     <title>My Profile</title>
     <style>
-        .wrapper{
+        .wrapper{            
             text-align: center;
             height: 300px;
             padding: 12px;
-            background-color: #fd29378e;
+            background-color: #8b8182;
+        }
+        .test{
+            display: flex;
+            flex-direction: column;
         }
         .avatar{
-            width: 300px;
-            height: 300px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
         }
         .user-name{
@@ -41,16 +45,21 @@
     {% load socialaccount %}
     {% include 'partials/head.html' %}  
     {% block content%}
+  <div class="test">
     <div class="wrapper">
         <img class= 'avatar' src = "{{profile.profile_picture}}">
-        <h1 class="'user-name">{{user.first_name}}</h1>
-        <button><a href="{%url 'update_profile'%}"> Update profile </button></a>
+        <h1 class="'user-name">{{profile.first_name}}</h1>
+        <a href="{%url 'update_profile'%}" style="color: white;"> Update profile</a>
     </div>
 
     <div class="container shadow-lg p-3 mb-5 bg-body rounded w-100">
         <div class="row justify-content-md-center">
             <div class="col col-lg-12 p-5">
                 <ul class="info-li">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <h4>From {{profile.city}}</h4>
+                    </li>
                     <li>
                         <a href="">Recipes</a>
                     </li>
@@ -66,19 +75,13 @@
     </div>
 
     <div class="container shadow-lg p-3 mb-5 bg-body rounded w-100">
-        <div class="row justify-content-md-start">
-         <div class="col col-lg-12 p-5">
-            <h4>From {{profile.city}}</h4>
-           <h1>About</h1>
-           <p>{{profile.about}} </p>
-           <h4>Interested in:</h4>
-            
-           
-         </div> 
+       <div class="row justify-content-md-start">
+            <div class="col col-lg-12 p-5">
+                <h1>About</h1><br>
+                <p>{{profile.about}}</p> 
+            </div>          
         </div>
-    </div> 
-
-    
+    </div>      
 
     {% include 'partials/footer.html' %}
     {% endblock content %}
